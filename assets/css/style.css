@@ -194,7 +194,7 @@ textarea {
 }
 @media (max-width: 770px) {
   .navbar{
-    background-color: #FBBF09;
+    background-color: #333A45;
     z-index: 500;
     height:40px;
   }  
@@ -205,8 +205,8 @@ textarea {
 }
 .hero-img{
   margin-top: 27px;
-  margin-left: 152px;
-  max-width: 50%;
+  margin-left: 12px;
+  max-width: 73%;
   margin-bottom: 14px;
 }
 
