@@ -28,7 +28,9 @@ app.use('/steps/', getStepsRouter);
 
 // Handle http posts
 app.post('/post_step', function(req, res) {
-    res.json("Just posted " + req.body);
+    console.log("POST:");
+    console.log(req);
+    res.json("Just posted ");
 });
 
 app.listen(5000);
