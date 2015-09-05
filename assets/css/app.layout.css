@@ -1,0 +1,54 @@
+aside, main {
+	dispaly:inline-block;
+	position: absolute;
+}
+
+aside {
+	left:0;
+	top:0;
+	bottom:0;
+	width:80px;
+	background-color: #FBBF09;
+	text-align: center;
+}
+
+main{
+	padding: 5px;
+	right:0;
+	left:80px;
+	top:0;
+	bottom:0;
+	width:74%;
+}
+
+.as-sidebar {
+	padding:0;
+	/*top:50%;*/
+	/*position: absolute;*/
+}
+.as-sidebar > li {
+	list-style: none;
+	padding: 0;
+}
+
+.as-sidebar > li i {
+	font-size: 2em;
+}
+
+.as-sidebar > li:hover {
+	color:white;
+	background-color: #6B00F6;
+}
+.as-sidebar > li:hover > a{
+	color:white;
+	background-color: #6B00F6;
+}
+
+.as-sidebar > li > a, .as-sidebar > li > a:visited {
+	color:black;
+	width:100%;
+}
+
+/*.as-sidebar > li > a:hover{
+	color:white;
+}*/
