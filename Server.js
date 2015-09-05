@@ -15,6 +15,10 @@ app.get('/',function(req,res) {
     res.sendFile(path.join(__dirname+"/index.html"));
 });
 
+app.get('/app',function(req,res) {
+    res.sendFile(path.join(__dirname+"/app.html"));
+});
+
 /* Api Router */
 var getStepsRouter = express.Router();
 
@@ -24,9 +28,9 @@ getStepsRouter.use(function (req, res, next) {
 });
 
 // static files
-app.use("/css", express.static(__dirname + '/css'));
+//app.use("/css", express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
-app.use("/img", express.static(__dirname + '/img'));
+app.use("/assets", express.static(__dirname + '/assets'));
 
 // Registering the routers
 app.use('/steps/', getStepsRouter);
