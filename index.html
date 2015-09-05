@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Create custom WoW items to share with friends">
+    <meta name="author" content="Antoine Dahan">
+    <link rel="icon" href="../img/treasure_chest.png">
+
+    <title>looted.link</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="../item.css">
+
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+
+    <style>
+      .text-input {
+        width: 50%;
+        font-size: 160%;
+        padding: 20px 6px;
+      }
+    </style>
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="item.css">
+  </head>
+
+  <body>
+
+        <style>
+      
+      .logo-area {
+        margin: 10% auto;
+        width: 50%;
+      }
+
+      @media only screen and (max-device-width:480px) {
+        .logo-area {
+          margin: 8% auto;
+          width: 80%;
+        }
+      }
+
+    </style>
+
+    <div class="container" style="margin-bottom: 10px;">
+      <div class="logo-area">
+        <img style="margin-left: 40px;" src="img/treasure_chest.png">
+        <h1 style="font-size: 400%;">looted.link</h1>
+      </div>
+
+      <div class="jumbotron">
+        <p class="lead" style="font-size: 260%;">Create custom WoW items that you can share with friends</p>
+        <style>
+            .btn-success {
+                background-color: #a335ee;
+                border-color: #a335f4;
+            }
+
+            .btn-success:hover, .btn-success:focus {
+                background-color: #9966FF;
+                border-color: #9974FF;
+            }
+        </style>
+        <p><a class="btn btn-lg btn-success" href="http://looted.link/create" role="button">Create an item</a></p>
+      </div>
+
+      <style>
+        a {
+            color: #a335ee;
+        }
+
+        a:hover {
+            color: #9966FF;
+        }
+      </style> 
+            
+      <footer class="footer">
+        <div class="row">
+          <p class="col-lg-6"> <span style="background-color: #a335ee;" class="badge"><a style="color: white;" href="http://looted.link/api">API</a></span><br/><br/>© <a href="http://www.antoinedahan.com">Antoine Dahan</a> 2015 </p>
+        </div>
+      </footer>
+
+      <script>
+
+        jQuery(document).ready(function() {
+
+          $( "#durability-numerator" ).keypress(function() {
+            $("#durability-text" ).html($( "#durability-numerator" ).html() + "/" + $( "#durability-denominator" ).html());
+          });
+        });
+
+      </script>
+
+    </div> <!-- /container -->
+
+    <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-49936760-4', 'auto');
+            ga('send', 'pageview');
+        </script>
+  </body>
+</html>
