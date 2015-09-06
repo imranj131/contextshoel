@@ -90,78 +90,154 @@
 
       <script>
 
-      $(function () {
-        $('#chart-one').highcharts({
-            chart: {
-                zoomType: 'xy'
-            },
-            colors: ['#333A45', '#53B981'],
-            title: {
-                text: ''
-            },
-            subtitle: {
-                text: ''
-            },
-            exporting: { 
-              enabled: false 
-            },
-            xAxis: [{
-                categories: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00'],
-                crosshair: true
-            }],
-            yAxis: [{ // Primary yAxis
-              gridLineWidth: 0,
+          $(function () {
+            $('#chart-one').highcharts({
+                chart: {
+                    zoomType: 'xy'
+                },
+                colors: ['#333A45', '#53B981'],
                 title: {
-                    text: 'Steps Per Hour',
-                    style: {
-                        color: '#333A45'
-                    }
+                    text: ''
                 },
-                labels: {
-                    format: '{value}',
-                    style: {
-                        color: '#333A45'
-                    }
+                subtitle: {
+                    text: ''
                 },
-                min: 0
-            }, { // Secondary yAxis
-                labels: {
-                  format: '{value}°F',
-                  style: {
-                        color: '#53B981'
-                    }
-              },
-              title: {
-                  text: 'Temperature',
-                  style: {
-                        color: '#53B981'
-                    }
-              },
-              opposite: true
-            }],
-            tooltip: {
-                shared: true
-            },
-            series: [{
-                name: 'Steps Per Hour',
-                type: 'spline',
-                yAxis: 0,
-                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 266, 112, 43],
+                exporting: { 
+                  enabled: false 
+                },
+                xAxis: [{
+                    categories: [],
+                    crosshair: true
+                }],
+                yAxis: [{ // Primary yAxis
+                  gridLineWidth: 0,
+                    title: {
+                        text: 'Steps Per Hour',
+                        style: {
+                            color: '#333A45'
+                        }
+                    },
+                    labels: {
+                        format: '{value}',
+                        style: {
+                            color: '#333A45'
+                        }
+                    },
+                    min: 0
+                }, { // Secondary yAxis
+                    labels: {
+                      format: '{value}°F',
+                      style: {
+                            color: '#53B981'
+                        }
+                  },
+                  title: {
+                      text: 'Temperature',
+                      style: {
+                            color: '#53B981'
+                        }
+                  },
+                  opposite: true
+                }],
                 tooltip: {
-                    valueSuffix: ' steps'
+                    shared: true
                 }
-            }, {
-                name: 'Temperature',
-                type: 'spline',
-                yAxis: 1,
-                data: [72, 68, 67, 71, 73, 72, 74.3, 76.6, 77, 79, 81, 84],
-                tooltip: {
-                    valueSuffix: ' °F'
-                }
-            }]
-        });
-      });
-      </script>
+            });
+          });
+
+          function populateTemperatureGraph()
+          {
+            var thisUrl = window.location.href;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","http://104.236.25.183:5000/get_steps?date=2015-09-06", true);
+            xmlhttp.onreadystatechange=function() {
+              if(xmlhttp.readyState==4 && xmlhttp.status==200) {
+                  // sum the steps for today
+                  var rawResponseText = xmlhttp.responseText;
+                  var responseObject = JSON.parse(rawResponseText);
+                  var dailyStepsTally = 0;
+                  var tmps = [58, 56, 61, 63, 60, 63, 61, 62, 67, 68, 74, 77, 78, 82, 81, 83, 82, 78, 77, 75, 71.5, 73.4, 67.5, 63.2, 61.8];
+                  if(responseObject.hasOwnProperty("logs")) {
+                    var stepLogs = responseObject.logs;
+
+                    var date = new Date();
+                    var hour = date.getHours();
+
+                    var stepsByHour = Array();
+                    var timesList = Array();
+
+                    var temperatures = Array();
+                    for(var hourNumber = 0; hourNumber <= hour; hourNumber++) {
+                      var stepsTallyThisHour = 0;
+
+                      temperatures.push(tmps[hourNumber]);
+                      timesList.push(String(hourNumber) + ":00");
+
+                      // sum the steps from this hour
+                      for(var i = 0; i < stepLogs.length; i++) {
+                        if(stepLogs[i].hour == hourNumber && 
+                          stepLogs[i].hasOwnProperty("steps"))
+                        {
+                          stepsTallyThisHour += parseInt(stepLogs[i].steps);
+                        }
+                      }
+
+                      stepsByHour.push(stepsTallyThisHour);
+                    }
+
+                    //alert(stepsByHour);
+
+                    var chartOne = $('#chart-one').highcharts();
+
+                    var newSeriesA = {
+                      name: 'Steps Per Hour',
+                      type: 'spline',
+                      yAxis: 0,
+                      tooltip: {
+                          valueSuffix: ' steps'
+                      }
+                    };
+
+                    newSeriesA["data"] = stepsByHour;
+
+                    chartOne.addSeries(newSeriesA);
+
+                    var newSeriesB = {
+                      name: 'Temperature',
+                      type: 'spline',
+                      yAxis: 1,
+                      tooltip: {
+                          valueSuffix: ' °F'
+                      }
+                    };
+
+
+                    newSeriesB["data"] = temperatures;
+                    //timesList
+
+                    chartOne.addSeries(newSeriesB);
+
+                    chartOne.xAxis[0].update({categories: timesList}, true);
+
+                    //chartOne.xAxis.categories = timesList;
+                  }
+                
+              }
+            }
+            xmlhttp.send();
+          }
+
+          var intervalTemp = setInterval(function() {
+            setChartTemp();
+            window.clearInterval(intervalTemp);
+          }, 1000);
+
+          function setChartTemp()
+          {
+            populateTemperatureGraph();
+          }
+
+          </script>
 
       <div>
 

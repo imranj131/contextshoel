@@ -6,6 +6,8 @@
     "mongodb": "~2.0",
     "body-parser": "~1.13.1",
     "http": "latest",
-    "url": "latest"
+    "url": "latest",
+    "node-schedule": "latest",
+    "request" : "latest"
   }
 }
