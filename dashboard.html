@@ -126,6 +126,10 @@
           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4> <span class= "glyphicon glyphicon-stats"></span> Steps</h4></div>
         <div class="panel-body">
           <div>
+          <span style="padding-left: 20%">
+                <img src="./assets/images/steps.png" style="width: 35%; display: initial; margin-left: 145px; margin-right: auto;">
+          </span>
+              <hr>
             <p id="daily-steps-tally" class="daily-steps-tally" style="color:#787878;"></p>
           </div>
         </div>
@@ -253,12 +257,12 @@
       <div class="col-md-5 col-sm-6">
          
         <div class="panel panel-default">
-           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>You get <b>more steps</b> when it's a <b>sunnier day</b>.</h4>
+           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>You get <b>more steps</b> when it's a <b>cooler day</b>.</h4>
            </div>
         <div class="panel-body">
               
       <div style="background-color: white; border-radius: 12px; border: 1px solid white; border-width: thick;">
-        <h3 style="text-align: center;">Steps Per Minute vs. Temperature</h3>
+        <h3 style="text-align: center;">Steps vs. Weather</h3>
         <div id="chart-one" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
       </div>
 
@@ -423,28 +427,44 @@
             
         </div>
         </div>
-      
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4> You get <b>more running</b> when <b>you're listening to more music</b>.</h4></div>
+        <div class="panel-body">
+           <div style="background-color: white; border-radius: 12px; border: 1px solid white; border-width: thick;">
+            <h3 style="text-align: center;">Steps vs. Music</h3>
+            <div id="chart-one" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          </div>
+          </div>
+      </div>
+
     </div>
 
-    	<!-- <div class="panel panel-default">
-           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Correlations</h4></div>
-   			<div class="panel-body">
-              
-              <div class="progress">
-                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 40%"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-warning" style="width: 80%"></div>
-              </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
-              </div>
-              
+
+    <div class="col-md-6 col-sm-6">
+
+      <div class="panel panel-default">
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4> You get <b>more walking</b> when <b>you have more events on your calender</b>.</h4></div>
+        <div class="panel-body">
+          <div style="background-color: white; border-radius: 12px; border: 1px solid white; border-width: thick;">
+            <h3 style="text-align: center;">Steps vs. Events</h3>
+            <div id="chart-one" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          </div>
             </div>
-         </div>  -->
+      </div>
+
+      <div class="panel panel-default">
+           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>You get <b>more steps</b> when <b>you sleep longer</b>.</h4></div>
+        <div class="panel-body">
+        <div style="background-color: white; border-radius: 12px; border: 1px solid white; border-width: thick;">
+            <h3 style="text-align: center;">Steps vs. Sleep</h3>
+            <div id="chart-one" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    	
     </div>
     
     <br>
@@ -454,7 +474,9 @@
     <hr>
     
   </div>
-</div><!--/main-->
+</div>
+
+<!--/main-->
 
 <!--login modal-->
 <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
