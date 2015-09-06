@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Narrow Jumbotron Template for Bootstrap</title>
+    <title>Contextshoel | Context for the quantified self</title>
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
@@ -86,7 +86,8 @@
                     style: {
                         color: '#333A45'
                     }
-                }
+                },
+                min: 0
             }, { // Secondary yAxis
                 labels: {
                   format: '{value}°F',
@@ -109,11 +110,10 @@
                 name: 'Steps Per Hour',
                 type: 'spline',
                 yAxis: 0,
-                data: [144, 0, 0, 0, 0, 0, 0, 0, 0, 266, 112, 43],
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 266, 112, 43],
                 tooltip: {
                     valueSuffix: ' steps'
                 }
-
             }, {
                 name: 'Temperature',
                 type: 'spline',
