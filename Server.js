@@ -32,6 +32,7 @@ getStepsRouter.use(function (req, res, next) {
 app.use("/js", express.static(__dirname + '/js'));
 app.use("/assets", express.static(__dirname + '/assets'));
 
+
 // Registering the routers
 app.use('/steps/', getStepsRouter);
 
