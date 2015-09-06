@@ -430,6 +430,10 @@
   </div>
 </div>
 	<!-- script references -->
+<<<<<<< HEAD
+		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script> -->
+=======
+>>>>>>> 3b2c4d1c59596e1b0a70360cd794f2504b99a031
 		<script src="./js/dashboard/bootstrap.min.js"></script>
 		<script src="./js/dashboard/scripts.js"></script>
 	</body>

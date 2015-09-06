@@ -33,7 +33,7 @@
     <div class="container">
 
       <div class="jumbotron" style="background-color: #F7F7F7;">
-        <h1 class="daily-steps-tally" style="color: #333A45;">6,744</h1>
+        <h1 class="daily-steps-tally" id="daily-steps-tally" style="color: #333A45;">6,744</h1>
         <p class="lead" style="color: #333A45;">
           steps taken
           <select>
@@ -42,6 +42,42 @@
             <option>this month</option>
           </select></p>
       </div>
+
+      <script>
+        function updateDailyStepsTally() {
+          var thisUrl = window.location.href;
+          xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("GET","http://104.236.25.183:5000/get_steps?date=2015-09-06", true);
+          xmlhttp.onreadystatechange=function() {
+            if(xmlhttp.readyState==4 && xmlhttp.status==200) {
+                // sum the steps for today
+                var rawResponseText = xmlhttp.responseText;
+                var responseObject = JSON.parse(rawResponseText);
+
+                var dailyStepsTally = 0;
+                if(responseObject.hasOwnProperty("logs")) {
+                  var stepLogs = responseObject.logs;
+                  for(var i = 0; i < stepLogs.length; i++) {
+                    if(stepLogs[i].hasOwnProperty("steps")) {
+                      dailyStepsTally += parseInt(stepLogs[i].steps);
+                    }
+                  }
+                }
+                document.getElementById("daily-steps-tally").innerHTML = dailyStepsTally;
+            }
+          }
+          xmlhttp.send();
+        }
+
+        // initial populating of tally
+        updateDailyStepsTally();
+
+        // every 5 seconds send get request to get all daily step logs
+        setInterval(function(){
+          updateDailyStepsTally();
+        },5000);
+      </script>
+
 
       <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
       <script src="http://code.highcharts.com/highcharts.js"></script>
