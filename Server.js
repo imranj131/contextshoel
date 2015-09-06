@@ -10,6 +10,10 @@ var mongodb = require('mongodb');
 var mongoClient = mongodb.MongoClient;
 var mongoUrl = 'mongodb://localhost:27017/pennapps';
 
+// for getting weather data once an hour
+var schedule = require('node-schedule');
+var request = require("request");
+
 // configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -30,15 +34,36 @@ var getStepsRouter = express.Router();
 
 getStepsRouter.use(function (req, res, next) {
     res.json("asked for steps");
-    return;
+    res.end();
 });
-
-
 
 // static files
 //app.use("/css", express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
 app.use("/assets", express.static(__dirname + '/assets'));
+
+
+/*app.use("/temperature", function(req, res, next) {
+    url = "http://api.openweathermap.org/data/2.5/weather?q=Philidelphia,pa";
+
+    request({
+        url: url,
+        json: true
+        }, function (error, response, body) {
+
+            if (!error && response.statusCode === 200) {
+                console.log(body);
+                res.end();
+            }
+
+            else
+            {
+                res.end();
+            }
+        });
+
+    
+});*/
 
 /* expecting date variable as string with format: 2015-09-06 */
 app.use("/get_steps", function(req, res, next) {
@@ -47,13 +72,11 @@ app.use("/get_steps", function(req, res, next) {
 
     date = "";
     if(query.hasOwnProperty("date")) {
-        console.log(query.date);
         date = query.date;
     }
 
     hour = "";
     if(query.hasOwnProperty("hour") && !isNaN(query.hour)) {
-        console.log(query.hour);
         hour = parseInt(query.hour);
     }
 
@@ -170,6 +193,7 @@ app.post('/post_step', function(req, res) {
         }
     });
 });
+
 
 function getCurrentDate() {
     var date = new Date();
