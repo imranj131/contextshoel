@@ -13,6 +13,7 @@
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="./assets/css/dashboard.css" rel="stylesheet">
+    <!-- Highchart -->
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
@@ -95,7 +96,7 @@
 
         <div class="well"> 
              <form class="form-horizontal" role="form">
-              <h4>Mood</h4>
+              <h4> <span class="glyphicon glyphicon-grain"></span> Mood</h4>
                <div class="form-group" style="padding:14px;">
                 <textarea class="form-control" placeholder="How was your day?"></textarea>
               </div>
@@ -104,12 +105,16 @@
         </div>
 
         <div class="panel panel-default">
-          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Events</h4></div>
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4> <span class="glyphicon glyphicon-calendar"> Events</span></h4></div>
    			<div class="panel-body">
-              <div class="list-group">
-                <a href="http://bootply.com/tagged/modal" class="list-group-item">Number of events</a>
-                <a href="http://bootply.com/tagged/datetime" class="list-group-item">Time at events</a>
-              </div>
+          <div class="list-group">
+            <span style="padding-left: 20%">
+                <img src="./assets/images/calender.png" style="width: 23%; display: initial; margin-left: 60px; margin-right: auto;">
+          </span>
+          <hr>
+            <a href="#" class="list-group-item">Number of events = 2  </a>
+            <a href="#" class="list-group-item">Time at events = 01:20 </a>
+          </div>
             </div>
    		</div>
 
@@ -118,33 +123,36 @@
   <div class="col-md-4 col-sm-6">
 
       <div class="panel panel-default">
-          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Steps</h4></div>
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4> <span class= "glyphicon glyphicon-stats"></span> Steps</h4></div>
         <div class="panel-body">
           <div>
-            <p class="daily-steps-tally">6,744</p>
+            <p class="daily-steps-tally" style="color:#787878;">1750</p>
           </div>
-            </div>
+        </div>
       </div>
 
       <div class="panel panel-default">
-           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Tracks Played</h4></div>
+           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4> <span class= "glyphicon glyphicon-headphones"></span> Music </span></h4></div>
         <div class="panel-body">
-              <ul class="list-group">
-              <li class="list-group-item">George Ezra</li>
-              <li class="list-group-item">Miguel</li>
-              <li class="list-group-item">Stromae</li>
-              </ul>
+            <div>
+            <span style="padding-left: 20%">
+                <img src="./assets/images/spotify.png" style="width: 43%; display: initial; margin-left: 35px; margin-right: auto;">
+          </span>
+              <hr>
+            <a href="#" class="list-group-item">Today = 23 tracks played </a>
+          </div>
         </div>
       </div>
         
         <div class="panel panel-default">
-          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Traffic</h4></div>
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><span class= "glyphicon glyphicon-time"></span> Sleep</h4></div>
    			<div class="panel-body">
-              <div class="list-group">
-                <a href="http://bootply.com/tagged/bootstrap-3" class="list-group-item active">Morning</a>
-                <a href="http://bootply.com/tagged/snippets" class="list-group-item">Daytime</a>
-                <a href="http://bootply.com/tagged/example" class="list-group-item">Evening</a>
-              </div>
+        <span style="padding-left: 20%">
+                <img src="./assets/images/fitbit.png" style="width: 43%; display: initial; margin-left: 35px; margin-right: auto;">
+          </span>
+          <hr>
+           <a href="#" class="list-group-item">Bed time = 08:10 </a>
+            <a href="#" class="list-group-item">Awakenings = 2 </a>
             </div>
    		</div>
 
@@ -153,23 +161,34 @@
     <div class="col-md-4 col-sm-6">
 
       <div class="panel panel-default">
-           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Check-ins</h4></div>
+           <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><span class="glyphicon glyphicon-pushpin"> Check-ins </span></h4></div>
         <div class="panel-body">
-              <ul class="list-group">
-              <li class="list-group-item">Wells Fargo Center</li>
-              <li class="list-group-item">City Hall</li>
-              <li class="list-group-item">China Town</li>
-              </ul>
+        <span style="padding-left: 20%">
+                <img src="./assets/images/swarms.png" style="width: 40%; display: initial; margin-left: 25px; margin-right: auto;">
+        </span>
+              <hr>
+            <div>
+            <a href="#" class="list-group-item">Today = 2</a>
+            <a href="#" class="list-group-item">This week = 9</a>
+          </div>
         </div>
       </div>
         
         <div class="panel panel-default">
-          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Weather</h4></div>
+          <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4><span class="glyphicon glyphicon-cloud"> Weather </span></h4></div>
         <div class="panel-body">
               <div class="list-group">
-                <a href="http://bootply.com/tagged/bootstrap-3" class="list-group-item active">Min/Max Temp</a>
-                <a href="http://bootply.com/tagged/snippets" class="list-group-item">Cloud Cover</a>
-                <a href="http://bootply.com/tagged/example" class="list-group-item">Precipitation</a>
+              <span style="padding-left: 20%">
+                <img src="./assets/images/sun.png" style="width: 25%; display: initial; margin-left: auto; margin-right: auto;">
+                <img src="./assets/images/cloudy.png" style="width: 32%; display: initial; margin-left: auto; margin-right: auto;">
+              </span>
+              <hr>
+                <a href="http://bootply.com/tagged/modal" class="list-group-item">Max Temp = 25 &#8451</a>
+                <a href="http://bootply.com/tagged/datetime" class="list-group-item">Min Temp = 19 &#8451</a>
+                <a href="http://bootply.com/tagged/datetime" class="list-group-item">Precipitation = 0 mm</a>
+                <a href="http://bootply.com/tagged/datetime" class="list-group-item">Cloud Cover = 0.24 mm</a>
+                <a href="http://bootply.com/tagged/datetime" class="list-group-item">Wind Speed = 2.63 km/s</a>
+
               </div>
             </div>
       </div>
