@@ -4,6 +4,8 @@
   "dependencies": {
     "express": "^4.11.0",
     "mongodb": "~2.0",
-    "body-parser": "~1.13.1"
+    "body-parser": "~1.13.1",
+    "http": "latest",
+    "url": "latest"
   }
 }
