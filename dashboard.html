@@ -294,7 +294,8 @@
                     style: {
                         color: '#333A45'
                     }
-                }
+                },
+                min: 0
             }, { // Secondary yAxis
                 labels: {
                   format: '{value}°F',
@@ -317,11 +318,10 @@
                 name: 'Steps Per Hour',
                 type: 'spline',
                 yAxis: 0,
-                data: [144, 0, 0, 0, 0, 0, 0, 0, 0, 266, 112, 43],
+                data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 266, 112, 43],
                 tooltip: {
                     valueSuffix: ' steps'
                 }
-
             }, {
                 name: 'Temperature',
                 type: 'spline',
@@ -430,7 +430,6 @@
   </div>
 </div>
 	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="./js/dashboard/bootstrap.min.js"></script>
 		<script src="./js/dashboard/scripts.js"></script>
 	</body>
