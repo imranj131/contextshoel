@@ -16,7 +16,7 @@ app.get('/',function(req,res) {
 });
 
 app.get('/app',function(req,res) {
-    res.sendFile(path.join(__dirname+"/app.html"));
+    res.sendFile(path.join(__dirname+"/dashboard/index.html"));
 });
 
 /* Api Router */
