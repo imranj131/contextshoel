@@ -68,7 +68,7 @@ app.use("/get_steps", function(req, res, next) {
                         "hour" : hour
                     }).toArray(function(err, items) {
                         if(err == null) {
-                            res.json(items);
+                            res.json({"logs" : items});
                         }
                         db.close();
                     });
@@ -89,7 +89,7 @@ app.use("/get_steps", function(req, res, next) {
                         "date" : date
                     }).toArray(function(err, items) {
                         if(err == null) {
-                            res.json(items);
+                            res.json({"logs" : items});
                         }
                         db.close();
                     });
@@ -116,7 +116,7 @@ app.use("/send_steps", function(req, res, next) {
     var url_parts = url.parse(req.url, true);
     var query = url_parts.query;
 
-    if(query.hasOwnProperty("steps") && !isNaN(query.steps)){
+    if(query.hasOwnProperty("steps") && query.steps.length > 0 && !isNaN(query.steps)){
         console.log(query.steps);
         console.log("sent some steps");
 
